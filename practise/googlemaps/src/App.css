@@ -1,0 +1,577 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+html, body, #root, .container {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+.map-container {
+  width: 100vw;
+  height: 100vh;
+}
+.map-heading {
+  width: 100%;
+  min-height: 10%;
+  text-transform: uppercase;
+  border-bottom: 1px solid grey;
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 3%;
+}
+#map {
+  width: 100%;
+  min-height: 40%;
+  border-bottom: 1px solid grey;
+}
+.information-container {
+  height: 60%;
+  width: 100%;
+  position: relative;
+  margin-left: 5%;
+}
+
+.list-container {
+  width: 90%;
+  height: 50%;
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  margin-top: 15%;
+  box-shadow: 0 8px 6px -6px black;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.information-list {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  border: 1px solid grey;
+  border-radius: 20px;
+  transition: transform 300ms cubic-bezier(0.455,0.03,0.515,0.955);
+}
+
+.information-list:nth-child(1) {
+  margin-left: 200%;
+}
+.card {
+  width: 100%;
+  height: 100%;
+  border: 10px solid #fff;
+  border-radius: 20px;
+}
+.image-container {
+  width: 100%;
+  height: 45%;
+  background-size: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+
+}
+.info-container {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100%;
+  height: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+}
+.address-container, .phone-container {
+  width: 100%;
+  padding-top: 5px;
+  display: flex;
+}
+.address-container {
+  padding-top: 10px;
+}
+.website-container {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.address-container span, .phone-container span {
+  font-size: 0.8em;
+  margin-left: 5.5px;
+  margin-top: -1%;
+}
+.header {
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.header::before {
+  content:"";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  background-attachment: fixed;
+  background: inherit;
+}
+.header::after {
+  content:"";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25)
+}
+.heading {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  font-weight: bold;
+}
+.previous, .next {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  top: 5%;
+  border: none;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.previous {
+  left: 30%;
+  background-image: url('images/left-arrow-16.png');
+
+
+}
+.next {
+  right: 45%;
+  background-image: url('images/right-arrow-16.png');
+}
+
+.explore {
+  border: none;
+  text-decoration: none;
+  color: #008080;
+  text-transform: uppercase;
+  margin-left: 40%;
+}
+.explore:hover {
+  cursor: pointer;
+}
+.main-container {
+  width: 100%;
+  height: 100%;
+}
+.link-container {
+  width: 100%;
+  height: 5%;
+}
+.link-list, .photo-list-container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+}
+.link-list li {
+  width: 33.3%;
+  height: 100%;
+}
+.link-list li button {
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  color: #008080;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: none;
+}
+.photo-container {
+  width: 80%;
+  height: 90%;
+  overflow: hidden;
+  margin-left: 10%;
+}
+.photo-list {
+  width: 33.3%;
+  height: 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-right: 10px solid white;
+  border-bottom: 10px solid white;
+  margin-top: 0.5%;
+}
+.time-container {
+  width:100%;
+  height: 50%;
+  margin-top : 3%;
+  display: none;
+}
+.time-list-container {
+  width: 100%;
+  height: 20%;
+  display: flex;
+}
+.day {
+  width: 37%;
+  margin-left: 5%;
+  border-right: 3px dotted grey;
+  text-align: center;
+  color: #008080;
+}
+.time {
+  width: 63%;
+  padding-left: 2%;
+  /* border-bottom: 1px solid grey; */
+}
+.review-container {
+  width: 70%;
+  height: 100%;
+  display: none;
+  margin-left: 15%;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+.review-list-container {
+  width: 100%;
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.review-list {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  background-color: rgba(0,128,128,0.5);
+
+}
+.name, .review {
+  letter-spacing: 1%;
+  padding: 5%;
+}
+.time-list-container, .photo-list-container, .review-list-container {
+  margin-top: 10%;
+}
+.home {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: white;
+  background-image: url('images/arrow-back.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 28px;
+  font-size: 0;
+  margin: 1% 2%;
+  float: right;
+  /* border: 1px solid black; */
+}
+
+@media only screen and (min-width: 375px) and (max-width: 400px) {
+
+  .heading {
+    font-size: 1.2em;
+  }
+  .address-container {
+    padding-top: 15px;
+  }
+  .address-container span, .phone-container span {
+    font-size: 0.9em;
+  }
+  .time-list-container {
+    height: 10%;
+    margin-top: 1%;
+  }
+  .name {
+    padding: 0.5em;
+    padding-left: 3em;
+  }
+  .review {
+    padding: 2%;
+    padding-left: 3em;
+    font-size: 1em;
+  }
+  .review-list-container {
+    margin-top: 10%;
+  }
+}
+@media only screen and (min-width: 401px) and (max-width: 600px) {
+  .list-container {
+    width: 70%;
+    margin-top: 12%;
+    margin-left: 10%;
+  }
+  .previous {
+    left: 35%;
+  }
+  .next {
+    right: 45%;
+  }
+  .address-container {
+    padding-top: 15px;
+  }
+  .name {
+    padding: 0.5em;
+    padding-left: 3em;
+  }
+  .review {
+    padding: 2%;
+    padding-left: 3em;
+    font-size: 1em;
+  }
+  .review-list-container {
+    margin-top: 6%;
+  }
+  .time-list-container {
+    height: 10%;
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+
+  .heading {
+    font-size: 1.3em;
+  }
+  .address-container span, .phone-container span {
+    font-size: 0.8em;
+  }
+  .address-container {
+    margin-top: 20px;
+  }
+  .phone-container {
+    margin-top: 5px;
+  }
+  .address-container span:nth-child(1), .phone-container span:nth-child(1) {
+    margin-right: 1.5em;
+  }
+  .phone-container span:nth-child(1) {
+    margin-right: 2.5em;
+  }
+  .explore {
+    margin-top: 30px;
+  }
+  .list-container {
+    width: 60%;
+    margin-top: 8%;
+    margin-left: 15%;
+  }
+  .previous {
+    left: 40%;
+  }
+  .next {
+    right: 50%;
+  }
+  .link-list>li>button {
+    font-size: 1.2em;
+  }
+  .day, .time,.review,.name {
+    font-size: 1.2em;
+  }
+  .day {
+    padding-left: 1em;
+  }
+  .map-heading {
+    font-size: 2em;
+  }
+  .time-list-container {
+    height: 10%;
+    margin-top: 1%;
+
+  }
+  .name {
+    padding: 0.5em;
+    padding-left: 3em;
+  }
+  .review {
+    padding: 2%;
+    padding-left: 3em;
+    font-size: 1em;
+  }
+  .review-list-container {
+    margin-top: 5%;
+  }
+
+}
+@media only screen and (min-width: 801px) and (max-width: 900px){
+  .list-container {
+    width: 60%;
+    margin-top: 8%;
+    margin-left: 15%;
+  }
+  .previous {
+    left: 40%;
+  }
+  .next {
+    right: 50%;
+  }
+  .address-container span, .phone-container span, .website-container span {
+    margin-top: 1%;
+  }
+  .time-list-container, .photo-list-container, .review-list-container {
+    margin-top: 5%;
+  }
+  .time-list-container {
+    height: 10%;
+    margin-top: 1%;
+  }
+  .name {
+    padding: 0.5em;
+    padding-left: 3em;
+  }
+  .review {
+    padding: 2%;
+    padding-left: 3em;
+  }
+}
+@media only screen and (min-width: 901px) and (max-width: 1000px){
+  .address-container span, .phone-container span {
+    font-size: 0.8em;
+  }
+  .address-container {
+    margin-top: 10px;
+  }
+  .phone-container {
+    margin-top: 5px;
+  }
+  .phone-container span:nth-child(3) {
+    padding-left: 1em;
+  }
+  .address-container span:nth-child(1), .phone-container span:nth-child(1) {
+    margin-right: 1.5em;
+  }
+  .phone-container span:nth-child(1) {
+    margin-right: 2.5em;
+  }
+  .map-heading {
+    padding: 1%;
+    padding-top: 2%;
+  }
+  .list-container {
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 20%;
+  }
+  .previous {
+    left: 40%;
+  }
+  .next {
+    right: 50%;
+  }
+  .address-container span, .phone-container span, .website-container span {
+    margin-top: 1%;
+  }
+  .time-list-container, .photo-list-container, .review-list-container {
+    margin-top: 5%;
+  }
+  .review {
+    padding: 2%;
+    padding-left: 3em;
+  }
+  .name {
+    padding: 0.5em;
+    padding-left: 3em;
+  }
+  .time-list-container {
+    height: 10%;
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .link-list>li>button {
+    font-size: 1.5em;
+  }
+  .address-container span, .phone-container span {
+    font-size: 1em;
+  }
+  .phone-container {
+    margin-top: 5px;
+  }
+
+  .address-container span:nth-child(1), .phone-container span:nth-child(1) {
+    margin-right: 1.5em;
+  }
+  .phone-container span:nth-child(1) {
+    margin-right: 2.5em;
+  }
+  .map-heading {
+    padding: 1%;
+    font-size: 2em;
+  }
+  .list-container {
+    width: 40%;
+    height: 60%;
+    margin-top: 4.5%;
+    margin-left: 25%;
+  }
+  .previous {
+    left: 40%;
+  }
+  .next {
+    right: 50%;
+  }
+  .address-container span, .phone-container span, .website-container span {
+    margin-top: 1.2%;
+  }
+  .day, .time,.review,.name {
+    font-size: 1.2em;
+  }
+  .day {
+      padding-left: 1em;
+  }
+  .photo-list {
+    width: 25%;
+    height: 30%;
+
+  }
+  .time-list-container, .photo-list-container, .review-list-container {
+    margin-top: 2%;
+  }
+  .review-list-container {
+    margin-top: 4%;
+  }
+  .time-list-container {
+    margin-top: 1%;
+  }
+  .name {
+    padding: 0.5em;
+    padding-left: 3em;
+  }
+  .review {
+    padding: 2%;
+    padding-left: 3em;
+    font-size: 1em;
+  }
+  .heading {
+    font-size: 1.2em;
+  }
+}
